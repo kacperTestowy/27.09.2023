@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikt tego nie czyta</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            height: 100%;
+            padding: 0.5rem 4%;
+            background-color: darkturquoise;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            transition: all ease-in-out 1.5s;
+        }
+        p {
+            letter-spacing: 1px;
+            font-size: 2rem;
+            padding: 0.5em 1.25em;
+            box-shadow: 0 0 10px white;
+            color: white;
+            text-shadow: 0 0 2px black;
+        }
+    </style>
+</head>
+<body>
+    <p>Kacper Koczot</p>
+    <p>Witryny i aplikacje internetowe</p>
+    <p>2023</p>
+    <p>Jakub Sałach</p>
+    <script>
+        const body = document.querySelector("body");
+        const colors = ["green", "darkgreen", "darkred", "darkviolet", "darkblue", "crimson", "orangered", "slategray", "darkturquoise"];
+        let count = 0;
+        let ID = null;
+        function changeColors(count) {
+            if(count % 2 == 0) {
+                ID = setInterval(() => {
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    body.style.backgroundColor = color;
+                }, 2000);
+            } else {
+                clearInterval(ID);
+            }
+        }
+
+        body.addEventListener("click", () => {
+            count += 1;
+            changeColors(count);
+        })
+        changeColors(count);
+    </script>
+</body>
+</html>
